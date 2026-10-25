@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Windows 10 / 11 快捷键与 F 键图标速查：按分类记忆、按场景串联、看图标认功能，附必背 10 条与随机自测。">
+  <meta name="theme-color" content="#070b15">
+  <title>Windows 快捷键与 F 键图标速查</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/overview">
+        <span class="brand-mark" aria-hidden="true">⌨️</span>
+        <span class="brand-text">
+          <strong>Windows 快捷键</strong>
+          <small>SHORTCUT ATLAS</small>
+        </span>
+      </a>
+
+      <div class="search">
+        <span class="search-ico" aria-hidden="true">🔍</span>
+        <input id="search" type="search" placeholder="搜索快捷键 / 图标 / 场景" autocomplete="off"
+               aria-label="搜索快捷键、F 键图标、场景与必背清单">
+      </div>
+
+      <nav class="nav" aria-label="主导航">
+        <div class="nav-label">总览</div>
+        <a class="nav-item" href="#/overview" data-view="overview">
+          <span class="nav-ico" aria-hidden="true">🗺️</span><span>知识地图</span>
+        </a>
+        <a class="nav-item" href="#/icons" data-view="icons">
+          <span class="nav-ico" aria-hidden="true">🔣</span><span>F 键图标</span>
+        </a>
+        <a class="nav-item" href="#/cheatsheet" data-view="cheatsheet">
+          <span class="nav-ico" aria-hidden="true">📋</span><span>全量速查</span>
+        </a>
+
+        <div class="nav-label">练习</div>
+        <a class="nav-item" href="#/scenes" data-view="scenes">
+          <span class="nav-ico" aria-hidden="true">🧩</span><span>场景实战</span>
+        </a>
+        <a class="nav-item" href="#/drill" data-view="drill">
+          <span class="nav-ico" aria-hidden="true">🎯</span><span>自测</span>
+        </a>
+        <a class="nav-item" href="#/mustknow" data-view="mustknow">
+          <span class="nav-ico" aria-hidden="true">⭐</span><span>必背清单</span>
+        </a>
+
+        <div class="nav-label">按场景分类</div>
+        <div id="sectionNav"></div>
+      </nav>
+
+      <p class="nav-tip">按 <kbd class="keycap">/</kbd> 聚焦搜索 · <kbd class="keycap">Esc</kbd> 清空</p>
+      <div class="sidebar-foot">
+        内容整理自《Windows 快捷键与 F 键图标速查手册》<br>
+        Win10 / Win11 通用 · 纯静态页面
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menuBtn" type="button" aria-label="打开导航" title="打开导航">☰</button>
+        <div class="crumbs" id="crumbs">知识地图 · 总览</div>
+        <div class="topbar-meta" id="topbarMeta"></div>
+        <button class="icon-btn" id="printBtn" type="button" aria-label="打印或导出 PDF" title="打印 / 导出 PDF">🖨️</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="切换主题" title="切换主题">🌙</button>
+      </header>
+
+      <main class="view" id="view" tabindex="-1"></main>
+
+      <footer class="foot">
+        <span>Windows 快捷键知识库 · 键盘上的效率，来自肌肉记忆</span>
+        <span>快捷键 / 图标 / 场景 · 数据与视图分离，改 data.js 即可扩展</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/data.js"></script>
+  <!-- 需要新增分类时：新建 sections/extra.js（window.EXTRA_SECTIONS.push({...})），再取消下面这行注释 -->
+  <!-- <script src="sections/extra.js"></script> -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
