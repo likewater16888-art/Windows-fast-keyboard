@@ -29,6 +29,19 @@ python -m http.server 8080
 # 浏览器打开 http://localhost:8080/
 ```
 
+## 分享 / 转发
+
+把下面这一条链接发出去就行，对方**不用注册、不用登录、不用装任何东西**，点开即可用（手机浏览器同样适配，可加到主屏）：
+
+```
+https://likewater16888-art.github.io/Windows-fast-keyboard/
+```
+
+- 页面头部写了 `og:title` / `og:description` / `og:image`（`assets/preview.png`），贴到微信、QQ、飞书、Telegram、Slack、X 会展开成带标题和配图的卡片。
+- 想直接定位到某一页，可以带哈希：`#/cheatsheet`（全量速查）、`#/icons`（F 键图标）、`#/scenes`（场景实战）、`#/drill`（自测）。
+- 分享**仓库**链接（`https://github.com/likewater16888-art/Windows-fast-keyboard`）也能用：仓库 About 里已挂在线地址，README 首行也有入口；但给不熟悉 GitHub 的人，请直接给上面的 Pages 链接。
+- 如果对方所在网络打不开 `*.github.io`：把整个 `Windows-fast-keyboard` 文件夹压缩发过去，双击 `index.html` 即可离线使用（经典脚本，不需要服务器）；或把仓库再托管到 Gitee Pages / Vercel / Netlify（纯静态，直接导入即可）。
+
 ## 目录结构
 
 ```
@@ -37,7 +50,8 @@ Windows-fast-keyboard/
 ├─ assets/
 │  ├─ style.css          # 主题变量 + 布局 + 组件样式（含浅色主题与打印样式）
 │  ├─ data.js            # 全部内容：KB = { meta, mentalModels, sections, fnIcons, ... }
-│  └─ app.js             # 渲染与交互：路由、搜索、筛选、自测、复制、主题
+│  ├─ app.js             # 渲染与交互：路由、搜索、筛选、自测、复制、主题
+│  └─ preview.png        # 分享卡片图（og:image，1200×630）
 ├─ sections/             # 可选：分类扩展脚本（默认未启用）
 ├─ source/               # 原始 Markdown 手册
 ├─ .nojekyll             # 让 GitHub Pages 原样发布（不做 Jekyll 处理）
@@ -119,6 +133,8 @@ git push -u origin main
 ```
 
 仓库 **Settings → Pages**：Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`，保存后等 1–2 分钟即可访问上面的在线地址。
+
+当前仓库**已按此配置开启**（`build_type: legacy`、`source: main /`、`https_enforced: true`），之后每次 `git push` 都会自动重建，无需再进设置页。
 
 ## 说明
 
