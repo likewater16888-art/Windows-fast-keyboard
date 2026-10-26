@@ -972,6 +972,15 @@
     searchTimer = setTimeout(function () { render(); }, 140);
   });
 
+  /* 全量速查 / 图标页的关键词过滤框是渲染后插入的，用事件委托绑定，
+     避免每次 render 之后重复 addEventListener */
+  document.addEventListener('input', function (e) {
+    const t = e.target;
+    if (!t) { return; }
+    if (t.id === 'csQuery') { filterCheatsheet(); }
+    else if (t.id === 'iconQuery') { filterIcons(); }
+  });
+
   window.addEventListener('hashchange', function () {
     if (searchEl.value) { searchEl.value = ''; }
     render();
